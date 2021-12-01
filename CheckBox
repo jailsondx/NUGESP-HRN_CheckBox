@@ -1,0 +1,66 @@
+function onEdit(cri1, cri2, cri3, cri4) {
+  var planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('ESCALA DE MORSE'); //DEFINE A PLANILHA
+
+  //CRITERIOS DE AVALIAÇÃO
+  var cri1 = planilha.getRange('A4').getValue(); //INTERVALO DE CONDIÇÃO
+  var cri2 = planilha.getRange('A5').getValue(); //INTERVALO DE CONDIÇÃO
+  var cri3 = planilha.getRange('A6').getValue(); //INTERVALO DE CONDIÇÃO
+  var cri4 = planilha.getRange('A7').getValue(); //INTERVALO DE CONDIÇÃO
+
+
+    //FAZ A CHECAGEM DO VALOR E CHAMA A FUNÇÃO desmarcatudo()
+    if (cri1 == "0" || cri2 == "0" || cri3 == "0" || cri4 == "0"){
+      desmarcartudo();
+
+      if (cri1 == "0"){
+        planilha.hideRows(5,37); //FUNÇÃO ESCONDE LINHAS: X,Y (X A PARTIR DE QUAL LINHA ESCONDER, Y QUANTAS LINHAS ESCONDER)
+      }
+
+      if (cri2 == "0"){
+        planilha.hideRows(6,36); //FUNÇÃO ESCONDE LINHAS: X,Y (X A PARTIR DE QUAL LINHA ESCONDER, Y QUANTAS LINHAS ESCONDER)
+        planilha.hideRows(4,1);
+      }
+
+      if (cri3 == "0"){
+        planilha.hideRows(7,35); //FUNÇÃO ESCONDE LINHAS: X,Y (X A PARTIR DE QUAL LINHA ESCONDER, Y QUANTAS LINHAS ESCONDER)
+        planilha.hideRows(4,1);
+        planilha.hideRows(5,1);
+      }
+
+      if (cri4 == "0"){
+        planilha.hideRows(8,34); //FUNÇÃO ESCONDE LINHAS: X,Y (X A PARTIR DE QUAL LINHA ESCONDER, Y QUANTAS LINHAS ESCONDER)
+        planilha.hideRows(4,1);
+        planilha.hideRows(5,1);
+        planilha.hideRows(6,1);
+      }
+
+      } else{
+        planilha.showRows(1,46); //FUNÇÃO REVELA LINHAS: X,Y (X A PARTIR DE QUAL LINHA REVELAR, Y QUANTAS LINHAS REVELAR)
+    }
+
+
+};
+
+
+function desmarcartudo(){
+  var planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('ESCALA DE MORSE'); //DEFINE A PLANILHA
+
+  //INTERVALOS DE DESMARCAR
+  var desmarcar1 = planilha.getRange('A10:A13'); 
+  var desmarcar2 = planilha.getRange('A15:A16'); 
+  var desmarcar3 = planilha.getRange('A18:A21'); 
+  var desmarcar4 = planilha.getRange('A23:A26'); 
+  var desmarcar5 = planilha.getRange('A28:A31'); 
+  var desmarcar6 = planilha.getRange('A33:A36'); 
+  var desmarcar7 = planilha.getRange('A38:A41'); 
+  
+  //SETA VALOR NULO NOS INTERVALOS DEFINIDOS ACIMA
+  desmarcar1.setValue(null);
+  desmarcar2.setValue(null);
+  desmarcar3.setValue(null);
+  desmarcar4.setValue(null);
+  desmarcar5.setValue(null);
+  desmarcar6.setValue(null);
+  desmarcar7.setValue(null);
+}
+
